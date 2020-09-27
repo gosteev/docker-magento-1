@@ -4,6 +4,5 @@ git remote add origin https://github.com/gosteev/docker-magento-1
 git fetch origin -qqq
 git checkout origin/master -- compose
 mv compose/* ./
-mv compose/.vscode ./
 rm -rf compose .git
 git init
