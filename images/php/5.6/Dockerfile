@@ -36,6 +36,10 @@ RUN pecl channel-update pecl.php.net \
   && docker-php-ext-enable xdebug \
   && sed -i -e 's/^zend_extension/\;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
+RUN curl -sSLO https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 \
+  && chmod +x mhsendmail_linux_amd64 \
+  && mv mhsendmail_linux_amd64 /usr/local/bin/mhsendmail
+
 RUN curl -sS https://getcomposer.org/installer | \
   php -- --install-dir=/usr/local/bin --filename=composer
 
